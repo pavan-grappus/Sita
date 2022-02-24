@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="40628" started-at="2022-02-24T16:09:29 IST" finished-at="2022-02-24T16:10:09 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="40628" started-at="2022-02-24T16:09:29 IST" finished-at="2022-02-24T16:10:09 IST">
+      <class name="runnerFiles.MasterSection">
+        <test-method status="PASS" signature="readingVariablesfromFile()[pri:0, instance:runnerFiles.MasterSection@86be70a]" name="readingVariablesfromFile" is-config="true" duration-ms="129" started-at="2022-02-24T16:09:29 IST" finished-at="2022-02-24T16:09:29 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- readingVariablesfromFile -->
+        <test-method status="PASS" signature="logintoApplication()[pri:0, instance:runnerFiles.MasterSection@86be70a]" name="logintoApplication" is-config="true" duration-ms="8808" started-at="2022-02-24T16:09:29 IST" finished-at="2022-02-24T16:09:37 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logintoApplication -->
+        <test-method status="PASS" signature="loginToMasterSection()[pri:0, instance:runnerFiles.MasterSection@86be70a]" name="loginToMasterSection" is-config="true" duration-ms="18358" started-at="2022-02-24T16:09:37 IST" depends-on-methods="runnerFiles.BeforeRun.logintoApplication" finished-at="2022-02-24T16:09:56 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginToMasterSection -->
+        <test-method status="PASS" signature="countries()[pri:0, instance:runnerFiles.MasterSection@86be70a]" name="countries" duration-ms="13318" started-at="2022-02-24T16:09:56 IST" finished-at="2022-02-24T16:10:09 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- countries -->
+        <test-method status="PASS" signature="closeTest()[pri:0, instance:runnerFiles.MasterSection@86be70a]" name="closeTest" is-config="true" duration-ms="30" started-at="2022-02-24T16:10:09 IST" finished-at="2022-02-24T16:10:09 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeTest -->
+        <test-method status="PASS" signature="teardownReport()[pri:0, instance:runnerFiles.MasterSection@86be70a]" name="teardownReport" is-config="true" duration-ms="77" started-at="2022-02-24T16:10:09 IST" finished-at="2022-02-24T16:10:09 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardownReport -->
+      </class> <!-- runnerFiles.MasterSection -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
