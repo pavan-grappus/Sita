@@ -14,12 +14,25 @@ public class Hotels {
 
 	public By profilling = By.xpath("//p[text()='Profiling']");
 
+	public By modalHeader = By.className("ant-modal-title");
 	/*
 	 * About the HOTEL
 	 */
-	public By languageDropdown = By.xpath("//div[@name='language']//input");
+	public By languageDropdown = By.xpath("//div[@name='language']");
 
-	public By hotelName = By.xpath("//input[@name='name']");
+	private String hotelFloatConatiner = "//input[@name='name']//ancestor::div[@id='float-label']";
+
+	public By hotelName_input() {
+		return By.xpath(hotelFloatConatiner + "//input");
+	}
+
+	public By hotelName_label() {
+		return By.xpath(hotelFloatConatiner + "//label");
+	}
+
+	public By hotelName_alert() {
+		return By.xpath(hotelFloatConatiner + "//div[@role='alert']");
+	}
 
 	public By shortDescription = By.xpath("//input[@name='shortDescription']");
 
@@ -62,26 +75,60 @@ public class Hotels {
 	public By healthAndSafetyCertificate_No = By
 			.xpath("//span[text()='No']/preceding-sibling::span//input[@name='healthAndSafetyCertificate']");
 
+	public By healthAndSafetyCertificate_FileUpload = By.xpath("//p[text()='Upload Health & Safety Certificate']");
+
 	public By fireSafetyCertificate_Yes = By
 			.xpath("//span[text()='Yes']/preceding-sibling::span//input[@name='fireSafetyCertificate']");
 
 	public By fireSafetyCertificate_No = By
 			.xpath("//span[text()='No']/preceding-sibling::span//input[@name='fireSafetyCertificate']");
 
+	public By fireSafetyCertificate_FileUpload = By.xpath("//p[text()='Upload Fire Safety Certificate']");
+
 	public By liquorLicense_Yes = By
 			.xpath("//span[text()='Yes']/preceding-sibling::span//input[@name='liquorLicense']");
 
 	public By liquorLicense_No = By.xpath("//span[text()='No']/preceding-sibling::span//input[@name='liquorLicense']");
 
+	public By liquorLicenseCertificate_FileUpload = By.xpath("//p[text()='Upload Liquor License']");
+
 	public By officialClassification = By.xpath("//div[@name='officialClassification']");
 
-	public By tciClassification = By.xpath("tciClassification");
+	public By tciClassification = By.xpath("//div[@name='tciClassification']");
 
 	public By checkInTime = By.xpath("//input[@name='checkInTime']");
 
+	public By checkInOkbutton = By.xpath("(//span[text()='Ok']/parent::button)[1]");
+
 	public By checkOutTime = By.xpath("//input[@name='checkOutTime']");
 
+	public By checkOutOkbutton = By.xpath("(//span[text()='Ok']/parent::button)[2]");
+
 	public By saveDetails_button = By.xpath("//button//span[text()='Save Details']");
+
+	public By inTimeHours(String hour) {
+		return By.xpath("(//ul[@class='ant-picker-time-panel-column'])[1]//div[text()='" + hour + "']");
+	}
+
+	public By inTimeMin(String hour) {
+		return By.xpath("(//ul[@class='ant-picker-time-panel-column'])[2]//div[text()='" + hour + "']");
+	}
+
+	public By inTimeFormat(String hour) {
+		return By.xpath("(//ul[@class='ant-picker-time-panel-column'])[3]//div[text()='" + hour + "']");
+	}
+
+	public By outTimeHours(String hour) {
+		return By.xpath("(//ul[@class='ant-picker-time-panel-column'])[4]//div[text()='" + hour + "']");
+	}
+
+	public By outTimeMin(String hour) {
+		return By.xpath("(//ul[@class='ant-picker-time-panel-column'])[5]//div[text()='" + hour + "']");
+	}
+
+	public By outTimeFormat(String hour) {
+		return By.xpath("(//ul[@class='ant-picker-time-panel-column'])[6]//div[text()='" + hour + "']");
+	}
 
 	/*
 	 * FACT SHEET
@@ -95,5 +142,4 @@ public class Hotels {
 		return By.xpath("//span[text()='" + String + "']/preceding-sibling::label//input[@type='checkbox']");
 	}
 
-	
 }

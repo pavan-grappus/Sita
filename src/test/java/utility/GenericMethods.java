@@ -420,7 +420,7 @@ public class GenericMethods {
 		}
 	}
 
-	public boolean clickNormal(By path, String Note) throws InterruptedException {
+	public boolean clickNormal(By path, String Note) {
 
 		WebElement element = null;
 		try {

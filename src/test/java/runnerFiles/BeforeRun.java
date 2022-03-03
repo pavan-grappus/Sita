@@ -48,6 +48,10 @@ public class BeforeRun {
 		gm.OpenBrowser(EnvironmentDetails.sitaURL, "chrome");
 //		gm.runindebugmode("E:\\eclipseWorkSpace\\HumanityHealth\\Driver\\" + "chromedriver.exe");
 
+		gm.setText(login.email_input, "Mahima@grappus.com", "email_input");
+		gm.setText(login.password_input, "mahima@g", "password_input");
+		gm.click(login.loginButton, "loginButton");
+		
 		gm.EndTest();
 	}
 

@@ -3,15 +3,16 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="runnerFiles.LoginPageTestCases">
+      <class name="runnerFiles.Hotels">
         <methods>
           <include name="logintoApplication"/>
+          <include name="navigateToHotels"/>
+          <include name="addNewHotelDetails"/>
           <include name="readingVariablesfromFile"/>
           <include name="closeTest"/>
           <include name="teardownReport"/>
-          <include name="validateTheLoginHeader"/>
         </methods>
-      </class> <!-- runnerFiles.LoginPageTestCases -->
+      </class> <!-- runnerFiles.Hotels -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
