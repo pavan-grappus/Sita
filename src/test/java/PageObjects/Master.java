@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 
 public class Master {
 
-	public By mastersHeader = By.xpath("//span[text()='Masters']/parent::div");
-
 	public By leftpanelResources = By.xpath("//div[@data-testid='resource-box']");
 
 	public By entities_countries = By.xpath("//div[@data-testid='resource-box']//span[text()='countries']");

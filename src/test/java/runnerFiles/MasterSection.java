@@ -16,9 +16,9 @@ public class MasterSection extends BeforeRun {
 		gm.setText(login.password_input, "mahima@g", "password_input");
 		gm.click(login.loginButton, "loginButton");
 
-		gm.waitforElementVisible(master.mastersHeader, 10, "Masters Header Name");
+		gm.waitforElementVisible(hp.mastersHeader, 10, "Masters Header Name");
 		gm.hold(10);
-		gm.click(master.mastersHeader, "Masters Header Name");
+		gm.click(hp.mastersHeader, "Masters Header Name");
 		gm.hold(5);
 		gm.EndTest();
 	}
@@ -59,6 +59,7 @@ public class MasterSection extends BeforeRun {
 
 		gm.verifyListofElementsContainsaText(master.countryCodeList("position()"), countryCode,
 				"List of Countries code");
+	
 		gm.EndTest();
 
 	}

@@ -11,9 +11,13 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import PageObjects.HomePage;
 import PageObjects.Login;
+import PageObjects.Hotels;
 import PageObjects.Master;
+import PageObjects.Products;
 import PageObjects.ToastMessage;
+import PageObjects.Suppliers;
 import resource.EnvironmentDetails;
 import utility.GenericMethods;
 
@@ -21,6 +25,10 @@ public class BeforeRun {
 
 	GenericMethods gm;
 	Login login = new Login();
+	HomePage hp = new HomePage();
+	Suppliers supplier = new Suppliers();
+	Products prod = new Products();
+	Hotels hotels = new Hotels();
 	Master master = new Master();
 	ToastMessage toastMessage = new ToastMessage();
 
