@@ -1,5 +1,6 @@
 package runnerFiles;
 
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -15,9 +16,9 @@ public class test {
 
 	public static void main(String[] args) {
 
-		String test = "Showing 124 Countries";
-		
-		System.out.println(test.replaceAll("[^0-9]", ""));
+		int Initialvalue = Integer.parseInt("Showing 125 Countries".replaceAll("[^0-9]", ""));
+
+		System.out.println("Showing " + (Initialvalue + 1) + " Countries");
 
 }
 }

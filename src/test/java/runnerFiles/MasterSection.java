@@ -36,6 +36,14 @@ public class MasterSection extends BeforeRun {
 		gm.hold(5);
 	}
 
+	public void openAddCountyModal(String countryName, String countryCode) {
+		gm.click(master.AddCountries, "AddCountries");
+		gm.waitforElementVisible(master.countryName, 5, "countryName");
+		gm.setText(master.countryName, countryName, "countryName");
+		gm.setText(master.countryCode, countryCode, "countryCode");
+		gm.click(master.AddCountryButton, "AddCountryButton");
+	}
+
 	@Test
 	public void countries() {
 
@@ -43,17 +51,18 @@ public class MasterSection extends BeforeRun {
 		 * Test 1
 		 */
 
-		String countryName = "TestName_" + LocalDateTime.now();
+		String countryName = "TestName_" + gm.getCurrentTime("DDmmYYYYhhmmss", "GMT");
 		String countryCode = RandomStringUtils.randomAlphabetic(3);
 
 		gm.StartTest("Add a New Unique Country", "As a User I need to add a New Country");
 
-		String getInitialCount = gm.getText(master.showingCount, "showingCount");
+		gm.loginfo("County Name is :" + countryName);
+		gm.loginfo("Country code is :" + countryCode);
+
+		int Initialvalue = Integer.parseInt(gm.getText(master.showingCount, "showingCount").replaceAll("[^0-9]", ""));
+
 		navigateToCountiresSection();
-		gm.click(master.AddCountries, "AddCountries");
-		gm.setText(master.countryName, countryName, "countryName");
-		gm.setText(master.countryCode, countryCode, "countryCode");
-		gm.click(master.AddCountryButton, "AddCountryButton");
+		openAddCountyModal(countryName, countryCode);
 		validateToastMessage("Created successfully", "Country created");
 		gm.EndTest();
 
@@ -63,9 +72,7 @@ public class MasterSection extends BeforeRun {
 
 		gm.StartTest("Validating if count is increasing when New county is added", "");
 
-		int Initialvalue = Integer.parseInt(getInitialCount.replaceAll("[^0-9]", ""));
-
-		gm.verifyElementText(master.showingCount, "Showing " + Initialvalue + 1 + " Countries", "showingCount");
+		gm.verifyElementText(master.showingCount, "Showing " + (Initialvalue + 1) + " Countries", "showingCount");
 		gm.EndTest();
 
 		/*
@@ -86,9 +93,9 @@ public class MasterSection extends BeforeRun {
 			gm.logFail("Count is not greater than Zero");
 		}
 
-		gm.verifyListofElementsContainsaText(master.countryNameList("position()"), countryName, "List of Countries");
+		gm.verifyListofElementText(master.countryNameList("position()"), countryName, "List of Countries");
 
-		gm.verifyListofElementsContainsaText(master.countryCodeList("position()"), countryCode,
+		gm.verifyListofElementText(master.countryCodeList("position()"), countryCode.toUpperCase(),
 				"List of Countries code");
 
 		gm.EndTest();
@@ -100,31 +107,44 @@ public class MasterSection extends BeforeRun {
 		gm.StartTest("Trying to add a Existing Country Code",
 				"As a User I need to add a Country with Existing county code");
 		navigateToCountiresSection();
-		gm.click(master.AddCountries, "AddCountries");
-		gm.setText(master.countryName, countryName, "countryName");
-		gm.setText(master.countryCode, countryCode, "countryCode");
-		gm.click(master.AddCountryButton, "AddCountryButton");
-		validateToastMessage("Bad Request", "Country with this Id : " + countryCode + " already exits");
+		openAddCountyModal(countryName, countryCode);
+		validateToastMessage("Bad Request", "Country with this Id : " + countryCode.toUpperCase() + " already exits");
 		gm.EndTest();
 
 		/*
 		 * Test 5
 		 */
 
-		gm.StartTest("Edit the added County code", "");
+		gm.StartTest("Edit the newly added Country Name", "");
+
+		int InitialvaluebeforeUpdate = Integer
+				.parseInt(gm.getText(master.showingCount, "showingCount").replaceAll("[^0-9]", ""));
+
 		String countyNameUpdated = countryName + " Updated";
 		navigateToCountiresSection();
 		gm.click(master.searchForCountries_SearchBar, "searchForCountries_SearchBar')");
 		gm.setText(master.searchForCountries_SearchBar, countryName, "searchForCountries_SearchBar");
-		gm.verifyElementNotPresent(master.countryCode, 1, "countryCode");
+		gm.hold(5);
 		gm.click(master.editButton(countryName), "editButton(" + countryName + ")");
+		gm.waitforElementVisible(master.countryName, 5, "countryName");
+		gm.clearbyBackspace(master.countryName, "countryName");
 		gm.setText(master.countryName, countyNameUpdated, "countryName");
+		gm.verifyElementNotPresent(master.countryCode, 1, "countryCode");
 		gm.click(master.EditCountryButton, "EditCountryButton");
 		validateToastMessage("Updated successfully", "Country updated");
 		gm.EndTest();
 
 		/*
 		 * Test 6
+		 */
+
+		gm.StartTest("Validating if count is Not increasing when New country is Edited", "");
+		navigateToCountiresSection();
+		gm.verifyElementText(master.showingCount, "Showing " + InitialvaluebeforeUpdate + " Countries", "showingCount");
+		gm.EndTest();
+
+		/*
+		 * Test 7
 		 */
 
 		gm.StartTest("Searching with the Updated Company name", "");
@@ -141,10 +161,9 @@ public class MasterSection extends BeforeRun {
 			gm.logFail("Count is not greater than Zero");
 		}
 
-		gm.verifyListofElementsContainsaText(master.countryNameList("position()"), countyNameUpdated,
-				"List of Countries");
+		gm.verifyListofElementText(master.countryNameList("position()"), countyNameUpdated, "List of Countries");
 
-		gm.verifyListofElementsContainsaText(master.countryCodeList("position()"), countryCode,
+		gm.verifyListofElementText(master.countryCodeList("position()"), countryCode.toUpperCase(),
 				"List of Countries code");
 		gm.EndTest();
 
