@@ -27,7 +27,7 @@ public class Hotels extends BeforeRun {
 		gm.EndTest();
 	}
 
-	@Test(enabled = false)
+	@Test(enabled = false, priority = 1)
 	public void validateHotelsModalWindow() {
 
 		gm.StartTest("Add New Hotels modal window", "");
@@ -119,7 +119,7 @@ public class Hotels extends BeforeRun {
 
 	}
 
-	@Test
+	@Test(enabled = false)
 	public void addNewHotelDetails() {
 		gm.StartTest("Add new Hotel Details", "Add new Hotel Details");
 
