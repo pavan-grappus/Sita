@@ -15,7 +15,9 @@ public class test {
 
 	public static void main(String[] args) {
 
-		System.out.println(EnvironmentDetails.uploadFilesRootPath);
+		String test = "Showing 124 Countries";
+		
+		System.out.println(test.replaceAll("[^0-9]", ""));
 
 }
 }
