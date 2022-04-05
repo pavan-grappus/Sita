@@ -14,6 +14,14 @@ public class Master {
 
 	public By searchBar_input = By.xpath("//input[contains(@class,'searchBar')]");
 
+	public By selectFromComboOptions_Text(String objectName) {
+		return By.xpath("//div[contains(@class,'select-item-option')][text()='" + objectName + "']");
+	}
+
+	public By selectFromComboOptions_Index(Object objectName) {
+		return By.xpath("//div[contains(@class,'select-item-option')][" + objectName + "]");
+	}
+
 	/*
 	 * Country
 	 */
@@ -35,6 +43,19 @@ public class Master {
 	public By countryEditButton(Object name) {
 		return By.xpath("//div[@class='ant-card-body']//div[text()='" + name
 				+ "']/parent::div[@class='flex flex-col']/following-sibling::div/img");
+	}
+
+	/*
+	 * Cities
+	 */
+	public By entities_cities = By.xpath("//div[@data-testid='resource-box']//span[text()='cities']");
+
+	public By cityNameList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][1]/div[1]");
+	}
+
+	public By cityCodeList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][1]/div[2]");
 	}
 
 	/*
@@ -227,7 +248,7 @@ public class Master {
 		return By.xpath("//div[contains(@class,'body')]//div[contains(@style,'columns')]/div[1][text()='" + name
 				+ "']/following::img[1]");
 	}
-	
+
 	/*
 	 * Nationalities
 	 */
@@ -251,4 +272,125 @@ public class Master {
 				+ "']/parent::div[@class='flex flex-col']/following-sibling::div/img");
 	}
 
+	/*
+	 * Zones
+	 */
+	public By entities_zones = By.xpath("//div[@data-testid='resource-box']//span[text()='zones']");
+
+	public By Addzones = By.xpath("//button//span[text()='Add zones']");
+
+	public By AddZoneButton = By.xpath("//button//span[text()='Add Zone']");
+	public By EditZoneButton = By.xpath("//button//span[text()='Edit Zone']");
+
+	public By CitysearchComboField = By.xpath("//div[@name='city']//input[@type='search'][@role='combobox']");
+
+	public By selectedCityOption = By.xpath("//div[@name='city']//span[contains(@class,'selection-item')]");
+
+	public By zoneNameList(Object index) {
+		return By.xpath("(//div[@class='capitalize'])[" + index + "]");
+	}
+
+	public By zoneCityList(Object index) {
+		return By.xpath("(//div[@class='flex flex-col'])[" + index + "]/div[1]");
+	}
+
+	public By zoneCityCodeList(Object index) {
+		return By.xpath("(//div[@class='flex flex-col'])[" + index + "]/div[2]");
+	}
+
+	public By zoneEditButton(Object name) {
+		return By.xpath("//div[@class='ant-card-body']//div[text()='" + name + "']/following-sibling::div/img");
+	}
+
+	/*
+	 * Special Needs
+	 */
+	public By entities_SpecialNeeds = By
+			.xpath("//div[@data-testid='resource-box']//span[text()='query special needs']");
+
+	public By AddSpecialNeeds = By.xpath("//button//span[text()='Add special needs']");
+
+	public By AddSpecialNeedsButton = By.xpath("//button//span[text()='Add Special Need']");
+	public By EditSpecialNeedsButton = By.xpath("//button//span[text()='Edit Special Need']");
+
+	public By HotelFacilitysearchComboField = By
+			.xpath("//div[@name='hotelFacilityId']//input[@type='search'][@role='combobox']");
+
+	public By selectedHotelFacilityOption = By
+			.xpath("//div[@name='hotelFacilityId']//span[contains(@class,'selection-item')]");
+
+	public By specialNeedsNameList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='capitalize']");
+	}
+
+	public By specialNeedsHotelFacilityList(Object index) {
+		return By.xpath(
+				"(//div[@class='ant-card-body'])[" + index + "]//div[@class='capitalize']/following-sibling::div[1]");
+	}
+
+	public By specialNeedsEditButton(Object name) {
+		return By.xpath("//div[@class='ant-card-body']//div[text()='" + name + "']/following-sibling::div/img");
+	}
+
+	/*
+	 * Hotel Facility
+	 */
+	public By entities_hotelFacility = By.xpath("//div[@data-testid='resource-box']//span[text()='hotel facility']");
+
+	public By hotelFacilityNameList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='capitalize'][1]");
+	}
+
+	/*
+	 * Terminals
+	 */
+	public By entities_terminals = By.xpath("//div[@data-testid='resource-box']//span[text()='terminals']");
+
+	public By AddTerminals = By.xpath("//button//span[text()='Add terminals']");
+
+	public By AddTerminalsButton = By.xpath("//button//span[text()='Add Terminal']");
+	public By EditTerminalsButton = By.xpath("//button//span[text()='Edit Terminal']");
+
+	public By TerminalsNameList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col']/div)[1]");
+	}
+
+	public By TerminalsCodeList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col']/div)[2]");
+	}
+
+	public By TerminalsCityList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][2]/div");
+	}
+
+	public By TerminalsEditButton(Object name) {
+		return By.xpath("//div[text()='" + name + "']/ancestor::div[@class='ant-card-body']//img");
+	}
+	
+	
+	/*
+	 * Stations
+	 */
+	public By entities_stations = By.xpath("//div[@data-testid='resource-box']//span[text()='stations']");
+
+	public By AddStations = By.xpath("//button//span[text()='Add stations']");
+
+	public By AddStationsButton = By.xpath("//button//span[text()='Add Stations']");
+	public By EditStationsButton = By.xpath("//button//span[text()='Edit Stations']");
+
+	public By StationsNameList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col']/div)[1]");
+	}
+
+	public By StationsCodeList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col']/div)[2]");
+	}
+
+	public By StationsCityList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][2]/div");
+	}
+
+	public By StationsEditButton(Object name) {
+		return By.xpath("//div[text()='" + name + "']/ancestor::div[@class='ant-card-body']//img");
+	}
 }
