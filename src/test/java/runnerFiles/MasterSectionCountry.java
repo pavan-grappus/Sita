@@ -1,35 +1,18 @@
 package runnerFiles;
 
-import java.time.LocalDateTime;
-
 import org.apache.commons.lang3.RandomStringUtils;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class MasterSection extends BeforeRun {
+public class MasterSectionCountry extends BeforeRun {
 
 	@BeforeTest
-	public void loginToMasterSection() {
-		gm.StartTest("Login to application and Navigate to Master section", "");
-
-		gm.setText(login.email_input, "cp+supervisor@grappus.com", "email_input");
-		gm.setText(login.password_input, "Test@123", "password_input");
-		gm.click(login.loginButton, "loginButton");
-
-		gm.waitforElementVisible(hp.mastersHeader, 10, "Masters Header Name");
-		gm.hold(10);
-		gm.click(hp.mastersHeader, "Masters Header Name");
-		gm.hold(5);
+	public void before() {
+		gm.StartTest("Navigate to Master section", "");
+		navigateToMasterSection();
 		gm.EndTest();
 	}
-
-	public void validateToastMessage(String header, String body) {
-		gm.waitforElementVisible(toastMessage.toastTitle, 10, "toastTitle");
-		gm.verifyElementText(toastMessage.toastTitle, header, "toastTitle");
-		gm.verifyElementText(toastMessage.toastdesc, body, "toastdesc");
-		gm.click(toastMessage.toastClose, "toastClose");
-	}
-
+	
 	public void navigateToCountiresSection() {
 		gm.refresh("countries", 5);
 		gm.click(master.entities_countries, "entities_countries");
@@ -38,9 +21,9 @@ public class MasterSection extends BeforeRun {
 
 	public void openAddCountyModal(String countryName, String countryCode) {
 		gm.click(master.AddCountries, "AddCountries");
-		gm.waitforElementVisible(master.countryName, 5, "countryName");
-		gm.setText(master.countryName, countryName, "countryName");
-		gm.setText(master.countryCode, countryCode, "countryCode");
+		gm.waitforElementVisible(master.nameField, 5, "countryName");
+		gm.setText(master.nameField, countryName, "countryName");
+		gm.setText(master.codeField, countryCode, "countryCode");
 		gm.click(master.AddCountryButton, "AddCountryButton");
 	}
 
@@ -50,18 +33,18 @@ public class MasterSection extends BeforeRun {
 		/*
 		 * Test 1
 		 */
+		gm.StartTest("Add a New Unique Country", "As a User I need to add a New Country");
+
+		navigateToCountiresSection();
 
 		String countryName = "TestName_" + gm.getCurrentTime("DDmmYYYYhhmmss", "GMT");
 		String countryCode = RandomStringUtils.randomAlphabetic(3);
-
-		gm.StartTest("Add a New Unique Country", "As a User I need to add a New Country");
 
 		gm.loginfo("County Name is :" + countryName);
 		gm.loginfo("Country code is :" + countryCode);
 
 		int Initialvalue = Integer.parseInt(gm.getText(master.showingCount, "showingCount").replaceAll("[^0-9]", ""));
 
-		navigateToCountiresSection();
 		openAddCountyModal(countryName, countryCode);
 		validateToastMessage("Created successfully", "Country created");
 		gm.EndTest();
@@ -81,8 +64,8 @@ public class MasterSection extends BeforeRun {
 
 		gm.StartTest("Search for the Added Company", "As a User I search for the company details added Newly");
 		navigateToCountiresSection();
-		gm.click(master.searchForCountries_SearchBar, "searchForCountries_SearchBar')");
-		gm.setText(master.searchForCountries_SearchBar, countryName, "searchForCountries_SearchBar");
+		gm.click(master.searchBar_input, "searchBar_input')");
+		gm.setText(master.searchBar_input, countryName, "searchBar_input");
 		gm.hold(5);
 
 		int count = gm.getSizeofWebelements(master.countryNameList("position()"), "List of Countries");
@@ -122,14 +105,14 @@ public class MasterSection extends BeforeRun {
 
 		String countyNameUpdated = countryName + " Updated";
 		navigateToCountiresSection();
-		gm.click(master.searchForCountries_SearchBar, "searchForCountries_SearchBar')");
-		gm.setText(master.searchForCountries_SearchBar, countryName, "searchForCountries_SearchBar");
+		gm.click(master.searchBar_input, "searchBar_input')");
+		gm.setText(master.searchBar_input, countryName, "searchBar_input");
 		gm.hold(5);
-		gm.click(master.editButton(countryName), "editButton(" + countryName + ")");
-		gm.waitforElementVisible(master.countryName, 5, "countryName");
-		gm.clearbyBackspace(master.countryName, "countryName");
-		gm.setText(master.countryName, countyNameUpdated, "countryName");
-		gm.verifyElementNotPresent(master.countryCode, 1, "countryCode");
+		gm.click(master.countryEditButton(countryName), "editButton(" + countryName + ")");
+		gm.waitforElementVisible(master.nameField, 5, "countryName");
+		gm.clearbyBackspace(master.nameField, "countryName");
+		gm.setText(master.nameField, countyNameUpdated, "countryName");
+		gm.verifyElementNotPresent(master.codeField, 1, "countryCode");
 		gm.click(master.EditCountryButton, "EditCountryButton");
 		validateToastMessage("Updated successfully", "Country updated");
 		gm.EndTest();
@@ -149,8 +132,8 @@ public class MasterSection extends BeforeRun {
 
 		gm.StartTest("Searching with the Updated Company name", "");
 		navigateToCountiresSection();
-		gm.click(master.searchForCountries_SearchBar, "searchForCountries_SearchBar')");
-		gm.setText(master.searchForCountries_SearchBar, countyNameUpdated, "searchForCountries_SearchBar");
+		gm.click(master.searchBar_input, "searchBar_input')");
+		gm.setText(master.searchBar_input, countyNameUpdated, "searchBar_input");
 		gm.hold(5);
 
 		int countUpdated = gm.getSizeofWebelements(master.countryNameList("position()"), "List of Countries");

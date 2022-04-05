@@ -30,6 +30,7 @@ public class BeforeRun {
 	Products prod = new Products();
 	Hotels hotels = new Hotels();
 	Master master = new Master();
+
 	ToastMessage toastMessage = new ToastMessage();
 
 	@BeforeSuite(enabled = true)
@@ -43,15 +44,12 @@ public class BeforeRun {
 	@BeforeTest(enabled = true)
 	public void logintoApplication() {
 
-		gm.StartTest("Launch the Application", "Launch the Application");
+		gm.StartTest("Launch the Application and Login", "Launch the Application");
 
 		gm.OpenBrowser(EnvironmentDetails.sitaURL, "chrome");
-//		gm.runindebugmode("E:\\eclipseWorkSpace\\HumanityHealth\\Driver\\" + "chromedriver.exe");
-//
-//		gm.setText(login.email_input, "Mahima@grappus.com", "email_input");
-//		gm.setText(login.password_input, "mahima@g", "password_input");
-//		gm.click(login.loginButton, "loginButton");
-		
+		gm.setText(login.email_input, "cp+supervisor@grappus.com", "email_input");
+		gm.setText(login.password_input, "Test@123", "password_input");
+		gm.click(login.loginButton, "loginButton");
 		gm.EndTest();
 	}
 
@@ -84,6 +82,22 @@ public class BeforeRun {
 			gm.verifyElementCSSValue(path, Key, value, note + " " + Key);
 
 		}
+	}
+
+	public void validateToastMessage(String header, String body) {
+		gm.waitforElementVisible(toastMessage.toastTitle, 10, "toastTitle");
+		gm.verifyElementText(toastMessage.toastTitle, header, "toastTitle");
+		gm.verifyElementText(toastMessage.toastdesc, body, "toastdesc");
+		gm.click(toastMessage.toastClose, "toastClose");
+	}
+
+	public void navigateToMasterSection() {
+
+		gm.waitforElementVisible(hp.mastersHeader, 10, "Masters Header Name");
+		gm.hold(10);
+		gm.click(hp.mastersHeader, "Masters Header Name");
+		gm.hold(5);
+
 	}
 
 }

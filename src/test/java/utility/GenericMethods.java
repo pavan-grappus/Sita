@@ -367,6 +367,7 @@ public class GenericMethods {
 					"Failed to Click on the Element : " + Note + " got the Exception message " + exctemp);
 			return false;
 		} catch (org.openqa.selenium.ElementClickInterceptedException e) {
+			logger.LogInfo("Scrolled to the element");
 			scrollToElement(driver, element);
 			try {
 				element.click();
