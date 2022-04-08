@@ -1321,6 +1321,10 @@ public class GenericMethods {
 				expectedarrayText[i] = expectedText;
 			}
 
+			if (expectedarrayText.length < 0) {
+				logger.LogFail(driver,
+						"There are no web elements present for comparision with ExpectedText " + expectedText);
+			}
 			if (Arrays.equals(actualarrayText, expectedarrayText)) {
 				logger.LogPass(driver,
 						"The List of Text Values are Matching in " + Note + "\n Actual Options: "
@@ -1637,6 +1641,66 @@ public class GenericMethods {
 			return false;
 		}
 
+	}
+
+	public boolean toggleOn(By path, String Note) {
+		try {
+
+			WebElement webElement = driver.findElement(path);
+			// findWebElement(path);
+			boolean isCurrentStateEnabled = Boolean.valueOf(webElement.getAttribute("value"));
+			if (!isCurrentStateEnabled) {
+				scrollToElement(driver, webElement);
+				webElement.click();
+
+				if (Boolean.valueOf(driver.findElement(path).getAttribute("value"))) {
+					logger.LogPass(driver, "Clicked on the Toogle option and is Enabled " + Note);
+					return true;
+				} else {
+					logger.LogFail(driver, "Clicked on the Toogle option and is NOT Enabled " + Note);
+					return false;
+				}
+
+			} else {
+				logger.LogPass(driver, "Checkbox is already Toggled ON and is Enabled " + Note);
+				return true;
+			}
+		} catch (ElementNotVisibleException | StaleElementReferenceException | TimeoutException | NoSuchElementException
+				| org.openqa.selenium.ElementClickInterceptedException e) {
+			logger.LogFail(driver, "Failed to Click on the Toggle " + Note + "-> " + e);
+			return false;
+		}
+
+	}
+
+	public boolean toggleOff(By path, String Note) {
+		try {
+
+			WebElement webElement = driver.findElement(path);
+			// findWebElement(path);
+			boolean isCurrentStateEnabled = Boolean.valueOf(webElement.getAttribute("value"));
+			if (isCurrentStateEnabled) {
+				scrollToElement(driver, webElement);
+				webElement.click();
+
+				if (Boolean.valueOf(driver.findElement(path).getAttribute("value"))) {
+
+					logger.LogFail(driver, "Clicked on the Toogle option and is NOT Disabled " + Note);
+					return false;
+				} else {
+					logger.LogPass(driver, "Clicked on the Toogle option and is Disabled " + Note);
+					return true;
+				}
+
+			} else {
+				logger.LogPass(driver, "Checkbox is already Toggled OFF and is Disabled " + Note);
+				return true;
+			}
+		} catch (ElementNotVisibleException | StaleElementReferenceException | TimeoutException | NoSuchElementException
+				| org.openqa.selenium.ElementClickInterceptedException e) {
+			logger.LogFail(driver, "Failed to Click on the Toggle " + Note + "-> " + e);
+			return false;
+		}
 	}
 
 	public boolean verifyOptionSelectedByLabel(By path, String Expecetedtext, String Note) {

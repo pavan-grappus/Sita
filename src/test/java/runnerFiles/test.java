@@ -1,6 +1,7 @@
 package runnerFiles;
 
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,9 +17,25 @@ public class test {
 
 	public static void main(String[] args) {
 
-		int Initialvalue = Integer.parseInt("Showing 125 Countries".replaceAll("[^0-9]", ""));
-
-		System.out.println("Showing " + (Initialvalue + 1) + " Countries");
+		List<String> actualarrayText = new ArrayList<String>();
+		
+		actualarrayText.add("a");
+		actualarrayText.add("a");
+		actualarrayText.add("a");
+		actualarrayText.add("a");
+		
+		
+		if(actualarrayText.stream().allMatch(s->s.contentEquals("a")))
+		{
+			System.out.println("pass");
+		}
+		else
+		{
+			System.out.println("fail");
+		}
+		
+		
+		
 
 }
 }

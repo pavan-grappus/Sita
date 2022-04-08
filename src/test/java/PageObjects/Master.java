@@ -20,6 +20,7 @@ public class Master {
 
 	public By selectFromComboOptions_Index(Object objectName) {
 		return By.xpath("//div[contains(@class,'select-item-option')][" + objectName + "]");
+
 	}
 
 	/*
@@ -337,8 +338,72 @@ public class Master {
 	 */
 	public By entities_hotelFacility = By.xpath("//div[@data-testid='resource-box']//span[text()='hotel facility']");
 
+	public By AddHotelFacility = By.xpath("//button//span[text()='Add hotel facilities']");
+
+	public By facilityTypesearchComboField = By
+			.xpath("//div[@name='type']//span[contains(@class,'select-selection-item')]");
+
+	public By inputTypesearchComboField = By
+			.xpath("//div[@name='inputType']//span[contains(@class,'select-selection-item')]");
+
+	public By isRequired_switch = By.xpath("//button[@role='switch']");
+
+	public By AddHotelFacilityButton = By.xpath("//button//span[text()='Add Hotel Facility']");
+
+	public By EditHotelFacilityButton = By.xpath("//button//span[text()='Edit Hotel Facility']");
+
+	public By HotelFacilityEditButton(Object name) {
+		return By.xpath("//div[contains(@class,'body')]//div[contains(@style,'columns')]/div[1][text()='" + name
+				+ "']/following::img[@class='cursor-pointer'][1]");
+	}
+
 	public By hotelFacilityNameList(Object index) {
 		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='capitalize'][1]");
+	}
+
+	public By hotelFacilityTypeList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='capitalize'][2]");
+	}
+
+	public By hotelFacilityInputTypeList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='capitalize'][3]");
+	}
+
+	public By hotelFacilityMandatoryList_img(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[2]/img");
+	}
+
+	/*
+	 * Monument Facility
+	 */
+
+	public By entities_monumentFacility = By
+			.xpath("//div[@data-testid='resource-box']//span[text()='monuments facilities']");
+
+	public By AddMonumentFacility = By.xpath("//button//span[text()='Add monument facilities']");
+
+	public By categoryDropdownComboField = By
+			.xpath("//div[@name='category']//span[contains(@class,'select-selection-item')]");
+
+	public By AddMonumentFacilityButton = By.xpath("//button//span[text()='Add Monument Facility']");
+
+	public By EditMonumentFacilityButton = By.xpath("//button//span[text()='Edit Monument Facility']");
+
+	public By MonumentFacilityEditButton(Object name) {
+		return By.xpath("//div[contains(@class,'body')]//div[contains(@style,'columns')]/div[1][text()='" + name
+				+ "']/following::img[@class='cursor-pointer'][1]");
+	}
+
+	public By MonumentFacilityNameList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='capitalize'][1]");
+	}
+
+	public By MonumentFacilityCategoryList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[3]");
+	}
+
+	public By MonumentFacilityMandatoryList_img(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[2]/img");
 	}
 
 	/*
@@ -366,8 +431,7 @@ public class Master {
 	public By TerminalsEditButton(Object name) {
 		return By.xpath("//div[text()='" + name + "']/ancestor::div[@class='ant-card-body']//img");
 	}
-	
-	
+
 	/*
 	 * Stations
 	 */
@@ -393,4 +457,32 @@ public class Master {
 	public By StationsEditButton(Object name) {
 		return By.xpath("//div[text()='" + name + "']/ancestor::div[@class='ant-card-body']//img");
 	}
+
+	/*
+	 * Speciality
+	 */
+
+	public By entities_Speciality = By.xpath("//div[@data-testid='resource-box']//span[text()='speciality']");
+
+	public By AddSpeciality = By.xpath("//button//span[text()='Add speciality']");
+
+	public By categorySearchComboField = By.xpath("//div[@name='tourCategoryId']//input");
+
+	public By AddSpecialityButton = By.xpath("//button//span[text()='Add Speciality']");
+
+	public By EditSpecialityButton = By.xpath("//button//span[text()='Edit Speciality']");
+
+	public By SpecialityEditButton(Object name) {
+		return By.xpath("//div[contains(@class,'body')]//div[contains(@style,'columns')]//div[1][text()='" + name
+				+ "']/following::img[@class='cursor-pointer'][1]");
+	}
+
+	public By SpecialityNameList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='capitalize'][1]");
+	}
+
+	public By SpecialityCategoryList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[3]");
+	}
+
 }
