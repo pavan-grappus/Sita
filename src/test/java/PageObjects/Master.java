@@ -485,4 +485,77 @@ public class Master {
 		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[3]");
 	}
 
+	/*
+	 * Vehicle Types
+	 */
+	public By entities_VehicleTypes = By.xpath("//div[@data-testid='resource-box']//span[text()='vehicle types']");
+
+	public By AddVehicleTypes = By.xpath("//button//span[text()='Add vehicle types']");
+
+	public By AddVehicleTypesButton = By.xpath("//button//span[text()='Add Vehicle Type']");
+	public By EditVehicleTypesButton = By.xpath("//button//span[text()='Edit Vehicle Type']");
+
+	public By vehicleCategorysearchComboField = By
+			.xpath("//div[@name='transportVehicleCategoryId']//input[@type='search'][@role='combobox']");
+
+	public By minAdultCapacity = By.xpath("//input[@name='minAdultCapacity']");
+	public By maxAdultCapacity = By.xpath("//input[@name='maxAdultCapacity']");
+	public By minChildCapacity = By.xpath("//input[@name='minChildCapacity']");
+	public By maxChildCapacity = By.xpath("//input[@name='maxChildCapacity']");
+
+	public By VehicleTypesNameList(Object index) {
+		return By.xpath("(//div[contains(@class,'card-body')])[" + index + "]//div[contains(@style,'columns')]/div[1]");
+	}
+
+	public By VehicleTypesMinimumAdultCapacityList(Object index) {
+		return By.xpath("(//div[contains(@class,'card-body')])[" + index + "]//div[contains(@style,'columns')]/div[2]");
+	}
+
+	public By VehicleTypesMaximumAdultCapacityList(Object index) {
+		return By.xpath("(//div[contains(@class,'card-body')])[" + index + "]//div[contains(@style,'columns')]/div[3]");
+	}
+
+	public By VehicleTypesMinimumChildCapacityList(Object index) {
+		return By.xpath("(//div[contains(@class,'card-body')])[" + index + "]//div[contains(@style,'columns')]/div[4]");
+	}
+
+	public By VehicleTypesMaximumChildCapacityList(Object index) {
+		return By.xpath("(//div[contains(@class,'card-body')])[" + index + "]//div[contains(@style,'columns')]/div[5]");
+	}
+
+	public By VehicleTypesVehicleCategoryList(Object index) {
+		return By.xpath("(//div[contains(@class,'card-body')])[" + index + "]//div[contains(@style,'columns')]/div[6]");
+	}
+
+	public By VehicleTypesEditButton(Object name) {
+		return By.xpath("//div[@class='ant-card-body']//div[text()='" + name + "']/following-sibling::div/img");
+	}
+
+	/*
+	 * Recommended Vehicles
+	 */
+	public By entities_RecommendedVehicles = By
+			.xpath("//div[@data-testid='resource-box']//span[text()='recommended vehicles']");
+
+	public By AddRecommendedVehicles = By.xpath("//button//span[text()='Add recommended vehicles']");
+
+	public By AddRecommendedVehiclesButton = By.xpath("//button//span[text()='Add Recommended Vehicle']");
+	public By EditRecommendedVehiclesButton = By.xpath("//button//span[text()='Edit Recommended Vehicle']");
+
+	public By RecommendedVehiclestotalPax_input = By.xpath("//input[@name='totalPax']");
+
+	public By vehicleTypesearchComboField = By
+			.xpath("//div[@name='transportVehicleType']//input[@type='search'][@role='combobox']");
+
+	public By RecommendedVehiclesVehicleTypesNameList(Object index) {
+		return By.xpath("(//div[contains(@class,'card-body')])[" + index + "]//div[contains(@style,'columns')]/div[2]");
+	}
+
+	public By RecommendedVehiclesTotalPaxList(Object index) {
+		return By.xpath("(//div[contains(@class,'card-body')])[" + index + "]//div[contains(@style,'columns')]/div[1]");
+	}
+
+	public By RecommendedVehiclesEditButton(Object name) {
+		return By.xpath("//div[@class='ant-card-body']//div[text()='" + name + "']/following-sibling::div/img");
+	}
 }
