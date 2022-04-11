@@ -47,10 +47,83 @@ public class Master {
 	}
 
 	/*
+	 * Regions
+	 */
+	public By entities_Regions = By.xpath("//div[@data-testid='resource-box']//span[text()='regions']");
+
+	public By AddRegions = By.xpath("//button//span[text()='Add regions']");
+
+	public By AddRegionButton = By.xpath("//button//span[text()='Add Region']");
+	public By EditRegionButton = By.xpath("//button//span[text()='Edit Region']");
+
+	public By CountriesSearchComboField = By.xpath("//div[@name='country']//input");
+
+	public By RegionsNameList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]/div/div)[1]");
+	}
+
+	public By RegionsCountryNameList(Object index) {
+		return By.xpath(("((//div[@class='ant-card-body'])[" + index + "]/div/div)[2]/div[1]"));
+	}
+
+	public By RegionsCountryCodeList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]/div/div)[2]/div[2]");
+	}
+
+	public By RegionsEditButton(Object name) {
+		return By.xpath("//div[@class='ant-card-body']//div[text()='" + name + "']/following-sibling::div/img");
+	}
+
+	/*
+	 * States
+	 */
+
+	public By entities_States = By.xpath("//div[@data-testid='resource-box']//span[text()='states']");
+
+	public By AddStates = By.xpath("//button//span[text()='Add states']");
+
+	public By AddStateButton = By.xpath("//button//span[text()='Add State']");
+	public By EditStateButton = By.xpath("//button//span[text()='Edit State']");
+
+	public By RegionsSearchComboField = By.xpath("//div[@name='region']//input");
+
+	public By StateNameList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]/div/div)[1]/div[1]");
+	}
+
+	public By StateCodeList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]/div/div)[1]/div[2]");
+	}
+
+	public By StateCountryNameList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]/div/div)[2]/div[1]");
+	}
+
+	public By StateCountryCodeList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]/div/div)[2]/div[2]");
+	}
+
+	public By StateRegionList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]/div/div)[3]");
+	}
+
+	public By StateEditButton(Object name) {
+		return By.xpath(
+				"//div[@class='ant-card-body']//div[text()='" + name + "']/parent::div/following-sibling::div/img");
+	}
+
+	/*
 	 * Cities
 	 */
 	public By entities_cities = By.xpath("//div[@data-testid='resource-box']//span[text()='cities']");
 
+	public By AddCities = By.xpath("//button//span[text()='Add cities']");
+
+	public By AddCityButton = By.xpath("//button//span[text()='Add City']");
+	public By EditCityButton = By.xpath("//button//span[text()='Edit City']");
+	
+	public By StateSearchComboField = By.xpath("//div[@name='state']//input");
+	
 	public By cityNameList(Object index) {
 		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][1]/div[1]");
 	}
@@ -59,6 +132,27 @@ public class Master {
 		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][1]/div[2]");
 	}
 
+	public By CitiesStateNameList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][2]/div[1]");
+	}
+	
+	public By CitiesStateCodeList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][2]/div[2]");
+	}
+	
+	public By CitiesCountryNameList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][3]/div[1]");
+	}
+	
+	public By CitiesCountryCodeList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][3]/div[2]");
+	}
+	
+	public By CitiesEditButton(Object name) {
+		return By.xpath(
+				"//div[@class='ant-card-body']//div[text()='" + name + "']/parent::div/following-sibling::div/img");
+	}
+	
 	/*
 	 * Trains
 	 */
