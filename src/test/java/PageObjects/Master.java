@@ -751,6 +751,38 @@ public class Master {
 		return By.xpath(
 				"//div[@class='ant-card-body']//div[text()='" + name + "']/parent::div/following-sibling::div/img");
 	}
-	
+
+	/*
+	 * Source Market
+	 */
+	public By entities_SourceMarkets = By.xpath("//div[@data-testid='resource-box']//span[text()='source markets']");
+
+	public By AddSourceMarkets = By.xpath("//button//span[text()='Add source market']");
+
+	public By AddSourceMarketButton = By.xpath("//button//span[text()='Add Source Market']");
+	public By EditSourceMarketButton = By.xpath("//button//span[text()='Edit Source Market']");
+
+	public By NationalitySearchComboField = By.xpath("//div[@name='nationality']//input");
+
+	public By SourceMarketsNameList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]/div/div)[1]/div[1]");
+	}
+
+	public By SourceMarketCodeList(Object index) {
+		return By.xpath(("((//div[@class='ant-card-body'])[" + index + "]/div/div)[1]/div[2]"));
+	}
+
+	public By SourceMarketNationalityNameList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]/div/div)[2]/div[1]");
+	}
+
+	public By SourceMarketNationalityCodeList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index + "]/div/div)[2]/div[2]");
+	}
+
+	public By SourceMarketEditButton(Object name) {
+		return By.xpath(
+				"//div[@class='ant-card-body']//div[text()='" + name + "']/parent::div/following-sibling::div/img");
+	}
 
 }
