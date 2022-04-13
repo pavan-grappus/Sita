@@ -1321,7 +1321,7 @@ public class GenericMethods {
 				expectedarrayText[i] = expectedText;
 			}
 
-			if (expectedarrayText.length < 0) {
+			if (expectedarrayText.length <= 0) {
 				logger.LogFail(driver,
 						"There are no web elements present for comparision with ExpectedText " + expectedText);
 			}

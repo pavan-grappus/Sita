@@ -121,9 +121,9 @@ public class Master {
 
 	public By AddCityButton = By.xpath("//button//span[text()='Add City']");
 	public By EditCityButton = By.xpath("//button//span[text()='Edit City']");
-	
+
 	public By StateSearchComboField = By.xpath("//div[@name='state']//input");
-	
+
 	public By cityNameList(Object index) {
 		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][1]/div[1]");
 	}
@@ -135,24 +135,24 @@ public class Master {
 	public By CitiesStateNameList(Object index) {
 		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][2]/div[1]");
 	}
-	
+
 	public By CitiesStateCodeList(Object index) {
 		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][2]/div[2]");
 	}
-	
+
 	public By CitiesCountryNameList(Object index) {
 		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][3]/div[1]");
 	}
-	
+
 	public By CitiesCountryCodeList(Object index) {
 		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]//div[@class='flex flex-col'][3]/div[2]");
 	}
-	
+
 	public By CitiesEditButton(Object name) {
 		return By.xpath(
 				"//div[@class='ant-card-body']//div[text()='" + name + "']/parent::div/following-sibling::div/img");
 	}
-	
+
 	/*
 	 * Trains
 	 */
@@ -652,4 +652,105 @@ public class Master {
 	public By RecommendedVehiclesEditButton(Object name) {
 		return By.xpath("//div[@class='ant-card-body']//div[text()='" + name + "']/following-sibling::div/img");
 	}
+
+	/*
+	 * Currency
+	 */
+
+	public By entities_currencies = By.xpath("//span[text()='currencies']");
+
+	public By AddCurrency = By.xpath("//span[text()='Add currency']");
+
+	public By currencySymbol = By.xpath("//input[@name='symbol']");
+
+	public By AddCurrencyButton = By.xpath("//button//span[text()='Add Currency']");
+
+	public By EditCurrencyButton = By.xpath("//button//span[text()='Edit Currency']");
+
+	public By currencyNameList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index
+				+ "]/div[contains(@style,'columns')]//div[contains(@class,'text')])[1]");
+	}
+
+	public By currencyCodeList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index
+				+ "]/div[contains(@style,'columns')]//div[contains(@class,'text')])[2]");
+	}
+
+	public By currencySymbolList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index
+				+ "]/div[contains(@style,'columns')]//div[contains(@class,'text')])[3]");
+	}
+
+	public By CurrencyEditButton(Object name) {
+		return By.xpath(
+				"//div[@class='ant-card-body']//div[text()='" + name + "']/parent::div/following-sibling::div/img");
+	}
+
+	/*
+	 * AddOn
+	 */
+
+	public By entities_AddOns = By.xpath("//span[text()='add ons']");
+
+	public By AddAddOns = By.xpath("//span[text()='Add add ons']");
+
+	public By AddAddOnButton = By.xpath("//button//span[text()='Add Add On']");
+
+	public By AddOnNameList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]/div[contains(@style,'columns')]/div");
+	}
+
+	public By AddOnEditButton(Object name) {
+		return By.xpath(
+				"//div[@class='ant-card-body']//div[text()='" + name + "']/parent::div/following-sibling::div/img");
+	}
+
+	/*
+	 * Currency
+	 */
+
+	public By entities_Language = By.xpath("//span[text()='languages']");
+
+	public By AddLanguage = By.xpath("//span[text()='Add languages']");
+
+	public By AddLanguageButton = By.xpath("//button//span[text()='Add Language']");
+
+	public By EditLanguageButton = By.xpath("//button//span[text()='Edit Language']");
+
+	public By languageNameList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index
+				+ "]/div[contains(@style,'columns')]//div[contains(@class,'text')])[1]");
+	}
+
+	public By languageCodeList(Object index) {
+		return By.xpath("((//div[@class='ant-card-body'])[" + index
+				+ "]/div[contains(@style,'columns')]//div[contains(@class,'text')])[2]");
+	}
+
+	public By LanguageEditButton(Object name) {
+		return By.xpath(
+				"//div[@class='ant-card-body']//div[text()='" + name + "']/parent::div/following-sibling::div/img");
+	}
+
+	/*
+	 * MonumentSpecialDays
+	 */
+
+	public By entities_MonumentSpecialDays = By.xpath("//span[text()='monument special days']");
+
+	public By AddMonumentSpecialDays = By.xpath("//span[text()='Add special days']");
+
+	public By AddMonumentSpecialDaysButton = By.xpath("//button//span[text()='Add Special Days']");
+
+	public By MonumentSpecialDaysNameList(Object index) {
+		return By.xpath("(//div[@class='ant-card-body'])[" + index + "]/div[contains(@style,'columns')]/div");
+	}
+
+	public By MonumentSpecialDaysEditButton(Object name) {
+		return By.xpath(
+				"//div[@class='ant-card-body']//div[text()='" + name + "']/parent::div/following-sibling::div/img");
+	}
+	
+
 }
